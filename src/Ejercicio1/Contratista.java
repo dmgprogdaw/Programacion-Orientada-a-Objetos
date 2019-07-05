@@ -16,6 +16,14 @@ public class Contratista extends Empleado {
 		super(nombre, primerApellido, segundoApellido, fechaContratacion, numCuentaBancaria);
 		this.sociedades = sociedades;
 	}
+
+	@Override
+	public String toString() {
+		return "Contratista [Nombre= " + getNombre() + ", Primer Apellido= " + getPrimerApellido()
+				+ ", Segundo Apellido= " + getSegundoApellido() + ", Fecha Contratacion= "
+				+ getFechaContratacion() + ", Numumero Cuenta Bancaria= " + getNumCuentaBancaria()
+						+ ", Lista Sociedades Anonimas= " + sociedades + "]";
+	}
 	
 	
 }

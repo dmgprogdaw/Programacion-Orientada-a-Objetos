@@ -1,6 +1,6 @@
 package Ejercicio1;
 
-public class Empleado implements Pagos{
+public class Empleado implements Pagos, Comparable<Empleado>{
 	
 	private String nombre;
 	private String primerApellido;
@@ -41,9 +41,22 @@ public class Empleado implements Pagos{
 
 	@Override
 	public void realizarPago() {
-		// TODO Apéndice de método generado automáticamente
+		System.out.println("Se ha realizado el pago");
 		
 	}
+
+	@Override
+	public String toString() {
+		return "Empleado [Nombre= " + nombre + ", Primer Apellido= " + primerApellido + ", Segundo Apellido= "
+				+ segundoApellido + ", Fecha Contratacion= " + fechaContratacion + ", Numero Cuenta Bancaria= "
+				+ numCuentaBancaria + "]";
+	}
 	
-	
+	@Override
+	public int compareTo(Empleado e) {
+		String empA = new String(String.valueOf(this.nombre));
+		String empB = new String(String.valueOf(e.nombre));
+		return empA.compareTo(empB);
+	}
+
 }

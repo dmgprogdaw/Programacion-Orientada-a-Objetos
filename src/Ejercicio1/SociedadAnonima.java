@@ -21,5 +21,8 @@ public class SociedadAnonima {
 		return nombre;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "SociedadAnonima Nombre= " + nombre + ", Lista= " + lista;
+	}
 }
