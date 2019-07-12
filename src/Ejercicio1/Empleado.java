@@ -5,18 +5,20 @@ public class Empleado implements Pagos, Comparable<Empleado>{
 	private String nombre;
 	private String primerApellido;
 	private String segundoApellido;
-	private String fechaContratacion;
+	private Integer dia, mes, año;
 	private int numCuentaBancaria;
 	
 	public Empleado() {
 		
 	}
 	
-	public Empleado(String nombre, String primerApellido, String segundoApellido, String fechaContratacion, int numCuentaBancaria) {
+	public Empleado(String nombre, String primerApellido, String segundoApellido, int dia, int mes, int año, int numCuentaBancaria) {
 		this.nombre = nombre;
 		this.primerApellido = primerApellido;
 		this.segundoApellido = segundoApellido;
-		this.fechaContratacion = fechaContratacion;
+		this.dia = dia;
+		this.mes = mes;
+		this.año = año;
 		this.numCuentaBancaria = numCuentaBancaria;
 	}
 	
@@ -35,8 +37,17 @@ public class Empleado implements Pagos, Comparable<Empleado>{
 	public String getSegundoApellido() {
 		return segundoApellido;
 	}
-	public String getFechaContratacion() {
-		return fechaContratacion;
+
+	public Integer getDia() {
+		return dia;
+	}
+
+	public Integer getMes() {
+		return mes;
+	}
+
+	public Integer getAño() {
+		return año;
 	}
 
 	@Override
@@ -44,11 +55,11 @@ public class Empleado implements Pagos, Comparable<Empleado>{
 		System.out.println("Se ha realizado el pago");
 		
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Empleado [Nombre= " + nombre + ", Primer Apellido= " + primerApellido + ", Segundo Apellido= "
-				+ segundoApellido + ", Fecha Contratacion= " + fechaContratacion + ", Numero Cuenta Bancaria= "
+				+ segundoApellido + ", Fecha Contratacion= " + dia + "-" + mes + "-" + año + ", Numero Cuenta Bancaria= "
 				+ numCuentaBancaria + "]";
 	}
 	

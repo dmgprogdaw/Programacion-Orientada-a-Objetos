@@ -11,9 +11,9 @@ public class Contratista extends Empleado {
 		super();
 	}
 
-	public Contratista(String nombre, String primerApellido, String segundoApellido, String fechaContratacion, int numCuentaBancaria, 
+	public Contratista(String nombre, String primerApellido, String segundoApellido, int dia, int mes, int año, int numCuentaBancaria, 
 			List sociedades) {
-		super(nombre, primerApellido, segundoApellido, fechaContratacion, numCuentaBancaria);
+		super(nombre, primerApellido, segundoApellido, dia, mes, año, numCuentaBancaria);
 		this.sociedades = sociedades;
 	}
 
@@ -21,7 +21,7 @@ public class Contratista extends Empleado {
 	public String toString() {
 		return "Contratista [Nombre= " + getNombre() + ", Primer Apellido= " + getPrimerApellido()
 				+ ", Segundo Apellido= " + getSegundoApellido() + ", Fecha Contratacion= "
-				+ getFechaContratacion() + ", Numumero Cuenta Bancaria= " + getNumCuentaBancaria()
+				+ getDia() + "-" + getMes() + "-" + getAño() + ", Numumero Cuenta Bancaria= " + getNumCuentaBancaria()
 						+ ", Lista Sociedades Anonimas= " + sociedades + "]";
 	}
 	

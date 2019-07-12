@@ -5,8 +5,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 
 public class Prueba {
 
@@ -25,29 +23,57 @@ public class Prueba {
 		so1.add(sa1);
 		so2.add(sa2);
 
-		Asalariado emple1 = new Asalariado("Alba", "Gonzalez", "Perez", "09-07-2012", 445566);
-		Contratista emple2 = new Contratista("Maria", "Iglesias", "Megido", "03-03-2003", 778899, so1);
-		Asalariado emple3 = new Asalariado("Jose", "Hernandez", "Martin", "05-05-1989", 225588);
-		Contratista emple4 = new Contratista("Daniel", "Diaz", "Velasco", "15-09-1999", 114477, so1);
-		Asalariado emple5 = new Asalariado("Elena", "Hernandez", "Fernandez", "28-03-2011", 112233);
-		Contratista emple6 = new Contratista("Victor", "Fernandez", "Velasco", "30-08-2000", 336699, so2);
-		List<Empleado> empleados = new ArrayList<>();
-
-		empleados.add(emple1);
-		empleados.add(emple2);
-		empleados.add(emple3);
-		empleados.add(emple4);
-		empleados.add(emple5);
-		empleados.add(emple6);
+		Asalariado emple1 = new Asalariado("Alba", "Gonzalez", "Perez", 9, 7, 2012, 445566);
+		Contratista emple2 = new Contratista("Maria", "Iglesias", "Megido", 3, 3, 2003, 778899, so1);
+		Asalariado emple3 = new Asalariado("Jose", "Hernandez", "Martin", 5, 5, 1989, 225588);
+		Contratista emple4 = new Contratista("Daniel", "Diaz", "Velasco", 15, 9, 1999, 114477, so1);
+		Asalariado emple5 = new Asalariado("Elena", "Hernandez", "Fernandez", 31, 3, 2000, 112233);
+		Contratista emple6 = new Contratista("Victor", "Fernandez", "Velasco", 30, 3, 2000, 336699, so2);
+		List<Empleado> listas = new ArrayList<>();
+		List<Empleado> ordenadaNombre = new ArrayList<>();
+		List<Empleado> ordenadaFecha = new ArrayList<>();
+		List<Empleado> ordenadaNombreInverso = new ArrayList<>();
 		
-		Collections.sort(empleados);
+		ordenadaNombre.add(emple1); ordenadaNombre.add(emple2); ordenadaNombre.add(emple3); ordenadaNombre.add(emple4); ordenadaNombre.add(emple5); ordenadaNombre.add(emple6);	
+		ordenadaFecha.add(emple1); ordenadaFecha.add(emple2); ordenadaFecha.add(emple3); ordenadaFecha.add(emple4); ordenadaFecha.add(emple5); ordenadaFecha.add(emple6);
+		ordenadaNombreInverso.add(emple1); ordenadaNombreInverso.add(emple2); ordenadaNombreInverso.add(emple3); ordenadaNombreInverso.add(emple4); ordenadaNombreInverso.add(emple5); ordenadaNombreInverso.add(emple6);	
 		
-		Iterator i = empleados.iterator();
+		Collections.sort(ordenadaNombre);
+		Collections.sort(ordenadaFecha, new Comparator<Empleado>() {			
+			public int compare(Empleado emp1, Empleado emp2) {
+				int comparacion = 0;
+				if (emp1.getAño().equals(emp2.getAño())) {
+					if (emp1.getMes().equals(emp2.getMes())) {
+						if (emp1.getDia().equals(emp2.getDia())) {
+							comparacion = emp2.getNombre().compareTo(emp1.getNombre());
+						}
+						else {
+							comparacion = emp2.getDia().compareTo(emp1.getDia());
+						}
+					}
+					else {
+						comparacion = emp2.getMes().compareTo(emp1.getMes());
+					}
+				}
+				else {
+					comparacion = emp2.getAño().compareTo(emp1.getAño());
+				}			
+				return comparacion;			
+			}
+		});
+		Collections.sort(ordenadaNombreInverso, new Comparator<Empleado>() {			
+			public int compare(Empleado emp1, Empleado emp2) {
+				return emp2.getNombre().compareTo(emp1.getNombre());		
+			}
+		});
+		
+		listas.addAll(ordenadaNombre); listas.addAll(ordenadaFecha); listas.addAll(ordenadaNombreInverso);
+		
+		Iterator<Empleado> i = listas.iterator();
 		while(i.hasNext()) {
 			Empleado elemento = (Empleado) i.next();
 			
 			System.out.println(elemento);
 		}
-		
-	}
+	}	
 }
