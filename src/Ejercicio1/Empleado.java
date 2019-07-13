@@ -52,7 +52,7 @@ public class Empleado implements Pagos, Comparable<Empleado>{
 
 	@Override
 	public void realizarPago() {
-		System.out.println("Se ha realizado el pago");
+		System.out.println("Se ha realizado el pago a " + nombre + " en la cuenta " + numCuentaBancaria);
 		
 	}
 	
